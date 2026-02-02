@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Components
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 // Lazy loaded components
 const LandingPage = lazy(() => import("./pages/LandingPage"));
@@ -28,6 +29,7 @@ function App() {
           <Routes>
             <Route path="/" element={<LandingPage />} />
           </Routes>
+          <Footer />
         </Suspense>
       </Router>
     </LazyMotion>

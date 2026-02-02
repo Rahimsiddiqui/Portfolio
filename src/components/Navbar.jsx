@@ -94,7 +94,7 @@ function Navbar() {
               Rahim Dev
             </p>
           </div>
-          <div className="flex flex-row ml-auto justify-center items-center gap-2 sm:gap-3 md:gap-6">
+          <div className="flex flex-row ml-auto justify-center items-center gap-2 sm:gap-3 md:gap-5 lg:gap-6">
             <div className="hidden md:flex flex-row justify-center items-center gap-7">
               {btns.map((btn) => (
                 <button
@@ -119,6 +119,12 @@ function Navbar() {
               ) : (
                 <Sun className="w-5 h-5 sm:w-5.75 sm:h-5.75" />
               )}
+            </button>
+            <button
+              className="hidden md:flex py-2 px-6 bg-primary hover:bg-primary/95 transition-colors transition-transform text-background duration-200 hover:scale-102 rounded-full font-medium cursor-pointer"
+              onClick={() => navigate("/contact")}
+            >
+              Let's Talk
             </button>
             <button
               onClick={toggleMobileMenu}

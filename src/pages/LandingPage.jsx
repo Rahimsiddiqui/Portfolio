@@ -73,11 +73,79 @@ const howIWork = [
   },
 ];
 
+const WorkCard = ({ work, idx, isLargeScreen }) => {
+  const [inView, setInView] = useState(false);
+
+  return (
+    <motion.div
+      onViewportEnter={() => setInView(true)}
+      viewport={{ once: true, amount: 0.2 }}
+      initial={isLargeScreen ? "hidden" : false}
+      whileInView={isLargeScreen ? "show" : false}
+      variants={
+        isLargeScreen
+          ? {
+              hidden: { opacity: 0, y: 30 },
+              show: {
+                opacity: 1,
+                y: 0,
+                transition: {
+                  type: "spring",
+                  duration: 0.8,
+                  bounce: 0.3,
+                },
+              },
+            }
+          : {}
+      }
+      className={`flex flex-col bg-surface/30 backdrop-blur-sm border border-border/40 rounded-2xl p-8 lg:p-10 items-start justify-center w-full transition-all duration-300 select-none relative group hover:border-primary/30 hover:shadow-md hover:shadow-primary/5 hover:-translate-y-1 overflow-hidden ${
+        !isLargeScreen && inView
+          ? idx % 2 === 0
+            ? "slide-in-right"
+            : "slide-in-left"
+          : ""
+      }`}
+      style={{
+        opacity: isLargeScreen ? undefined : inView ? 1 : 0,
+      }}
+    >
+      {/* Background Number */}
+      <span className="absolute -top-6 -right-2 font-space-grotesk text-9xl font-bold text-primary/5 select-none pointer-events-none transition-transform duration-500 group-hover:scale-110 group-hover:-translate-x-2">
+        {idx + 1}
+      </span>
+
+      <div className="relative z-10 w-full">
+        <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full mb-5 uppercase tracking-widest font-space-grotesk">
+          Step 0{idx + 1}
+        </span>
+        <h3 className="text-primary text-xl font-bold mb-4 font-space-grotesk tracking-tight leading-none group-hover:translate-x-1 transition-transform duration-300">
+          {work.title}
+        </h3>
+        <p className="text-secondary/90 text-[0.935rem] font-medium leading-relaxed">
+          {work.description}
+        </p>
+      </div>
+
+      {/* Decorative accent */}
+      <div className="absolute bottom-0 left-0 w-full h-[2px] bg-linear-to-r from-primary/0 via-primary/40 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+    </motion.div>
+  );
+};
+
 function LandingPage() {
   const navigate = useNavigate();
 
   const [index, setIndex] = useState(0);
   const [showContent, setShowContent] = useState(false);
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
+
+  useEffect(() => {
+    const checkScreen = () => setIsLargeScreen(window.innerWidth >= 1024);
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
   const part1 = "👋Hi, I am ";
   const part2 = "Rahim!";
   const fullLength = part1.length + part2.length;
@@ -118,7 +186,7 @@ function LandingPage() {
     if (index < fullLength) {
       const timer = setTimeout(() => {
         setIndex((prev) => prev + 1);
-      }, 100);
+      }, 65);
       return () => clearTimeout(timer);
     } else {
       const timer = setTimeout(() => {
@@ -226,6 +294,7 @@ function LandingPage() {
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
           className="font-semibold text-3xl sm:text-4xl md:text-[2.5rem] mb-14"
         >
@@ -244,6 +313,7 @@ function LandingPage() {
             animate={controls}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
             onUpdate={(latest) => {
               xPos.current = latest.x;
@@ -303,6 +373,7 @@ function LandingPage() {
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
           className="font-semibold text-3xl sm:text-4xl md:text-[2.4rem] mb-13.5 lg:mb-15"
         >
@@ -317,6 +388,7 @@ function LandingPage() {
                 key={idx}
                 initial={{ opacity: 0, x: isEven ? -20 : 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.2 }}
                 className="flex flex-col items-start justify-center w-full transition-colors cursor-pointer select-none group"
                 onClick={() => navigate(`/projects/${work.id}`)}
@@ -361,50 +433,170 @@ function LandingPage() {
         </p>
         <hr className="w-full border-border mt-24 mb-2" />
       </section>
+
       {/* How I Work Section */}
-      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto pt-8 pb-10 w-full">
+      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto pt-8 pb-10 w-full overflow-hidden">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="font-semibold text-3xl sm:text-4xl md:text-[2.4rem]"
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="font-semibold text-3xl sm:text-4xl md:text-[2.6rem] font-space-grotesk tracking-tight"
         >
           How I Work
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-secondary max-w-xl text-center text-lg mt-5 md:mt-6 mb-13.5 lg:mb-15"
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="text-secondary/80 max-w-xl text-center text-lg mt-4 md:mt-5 mb-14 lg:mb-18"
         >
           I follow a structured process to ensure every project is delivered
           with high quality, on time, and exceeds expectations.
         </motion.p>
-        <div className="grid gap-7 max-w-2xl md:grid-cols-2 lg:grid-cols-3 lg:max-w-6xl">
-          {howIWork.map((work, idx) => {
-            const isEven = idx % 2 === 0;
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0 },
+            show: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.15,
+                delayChildren: 0.4,
+              },
+            },
+          }}
+          className="grid gap-6 sm:gap-8 max-w-3xl md:grid-cols-2 lg:grid-cols-3 lg:max-w-6xl w-full"
+        >
+          {howIWork.map((work, idx) => (
+            <WorkCard
+              key={idx}
+              work={work}
+              idx={idx}
+              isLargeScreen={isLargeScreen}
+            />
+          ))}
+        </motion.div>
+        <hr className="w-full border-border mt-25 mb-5" />
+      </section>
 
-            return (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, x: isEven ? -20 : 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: 0.2 }}
-                className="flex flex-col bg-surface/70 rounded-xl shadow-md shadow-primary/10 py-8 px-5 sm:pl-6 md:py-10 items-start justify-center w-full hover:scale-102 transition-transform duration-200 select-none relative group"
+      {/* Testimonial Section */}
+      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto pt-8 pb-10 w-full">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="text-center max-w-4xl mx-auto"
+        >
+          <div className="mb-7 text-accent text-blue-600 dark:text-blue-500">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-message-square w-10 h-10 mx-auto"
+              aria-hidden="true"
+            >
+              <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <blockquote className="text-2xl sm:text-3xl md:text-4xl max-w-4xl font-display font-medium leading-10 sm:leading-12 md:leading-15 text-primary mb-10">
+            "Rahim is a rare breed of developer who understands design and
+            functionality. The attention to detail in animations and
+            interactions is world-class."
+          </blockquote>
+          <div className="flex items-center justify-center gap-3">
+            <div className="w-12 h-12 rounded-full bg-surface border border-border overflow-hidden">
+              <img
+                alt="Client Photo"
+                className="w-full h-full object-cover"
+                src="/images/ahmed.jpg"
+              />
+            </div>
+            <div className="text-left">
+              <div className="font-bold text-primary">Ahmed Siddiqui</div>
+              <div className="text-sm text-secondary">Verified Client</div>
+            </div>
+          </div>
+        </motion.div>
+        <hr className="w-full border-border mt-20 mb-6" />
+      </section>
+
+      {/* Contact Section */}
+      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto pt-6 pb-24 w-full px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="w-full bg-surface/30 backdrop-blur-xl border border-border/60 rounded-[2.5rem] p-12 md:p-24 text-center relative overflow-hidden group"
+        >
+          {/* Decorative background elements */}
+          <div className="absolute top-0 left-0 w-full h-full -z-10">
+            <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px] animate-pulse"></div>
+            <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-500/10 rounded-full blur-[120px] animate-pulse [animation-delay:2s]"></div>
+          </div>
+
+          <div className="relative z-10 flex flex-col items-center">
+            <motion.span
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="px-4 py-2 bg-primary/10 text-primary text-xs sm:text-sm font-bold rounded-full mb-8 uppercase tracking-[0.18rem] font-space-grotesk"
+            >
+              Get in Touch
+            </motion.span>
+
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-space-grotesk font-bold mb-9 tracking-tight text-primary leading-[1.1]">
+              Ready to build <br className="hidden md:block" />
+              something{" "}
+              <span className="text-blue-600 dark:text-blue-500">
+                extraordinary?
+              </span>
+            </h2>
+
+            <p className="text-lg md:text-xl text-secondary max-w-2xl mx-auto mb-8 leading-relaxed">
+              I'm currently looking for new opportunities and freelance
+              projects. Whether you have a specific idea or just want to chat
+              about tech, my inbox is always open.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-5">
+              <button
+                onClick={() => navigate("/contact")}
+                className="group relative flex items-center justify-center gap-2 bg-primary text-background px-9 py-4 rounded-full font-medium text-md hover:scale-102 transition-all duration-200 cursor-pointer overflow-hidden"
               >
-                <span className="absolute top-3.5 right-4 font-space-grotesk text-2xl sm:text-3xl text-secondary/60 rounded-full">
-                  0{idx + 1}
-                </span>
-                <span className="text-primary text-md sm:text-lg mb-3 leading-tighter uppercase font-semibold">
-                  {work.title}
-                </span>
-                <span className="text-secondary text-sm font-medium">
-                  {work.description}
-                </span>
-              </motion.div>
-            );
-          })}
-        </div>
+                <span className="relative z-10">Let's Chat</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+                {/* Button shine effect */}
+                <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shine_0.75s_ease-in-out] pointer-events-none"></div>
+              </button>
+            </div>
+          </div>
+        </motion.div>
       </section>
     </div>
   );
