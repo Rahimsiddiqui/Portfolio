@@ -371,10 +371,15 @@ function LandingPage() {
         >
           How I Work
         </motion.h2>
-        <p class="text-secondary max-w-xl text-center text-lg mt-5 md:mt-6 mb-13.5 lg:mb-15">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="text-secondary max-w-xl text-center text-lg mt-5 md:mt-6 mb-13.5 lg:mb-15"
+        >
           I follow a structured process to ensure every project is delivered
           with high quality, on time, and exceeds expectations.
-        </p>
+        </motion.p>
         <div className="grid gap-7 max-w-2xl md:grid-cols-2 lg:grid-cols-3 lg:max-w-6xl">
           {howIWork.map((work, idx) => {
             const isEven = idx % 2 === 0;

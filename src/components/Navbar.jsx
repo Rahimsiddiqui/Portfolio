@@ -123,6 +123,7 @@ function Navbar() {
             <button
               onClick={toggleMobileMenu}
               className="md:hidden p-2.5 rounded-full cursor-pointer hover:bg-surface transition-colors"
+              aria-label="Toggle Mobile Menu"
             >
               {mobileMenuOpen ? (
                 <X className="w-5 h-5 sm:w-5.75 sm:h-5.75" />
