@@ -18,12 +18,17 @@
 
 /* Dark mode color overrides */
 @layer base {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
   html.dark {
     color-scheme: dark;
   }
 
   html.dark * {
-    --color-background: #0a0a0a;
+    --color-background: #0c0c0c;
     --color-surface: #171717;
     --color-primary: #ededed;
     --color-secondary: #a3a3a3;
@@ -43,7 +48,6 @@ body {
   background: var(--color-background);
   color: var(--color-primary);
   line-height: 1.5;
-  transition: all 0.25s ease-in-out;
 }
 
 img,

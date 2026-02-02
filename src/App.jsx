@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 
 // Lazy loaded components
-const LandingPage = lazy(() => import("./components/LandingPage"));
+const LandingPage = lazy(() => import("./pages/LandingPage"));
 
 function App() {
   return (
