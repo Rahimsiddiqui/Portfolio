@@ -41,7 +41,7 @@ To run this project locally:
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/Rahimsiddiqui/Portfolio.git
+   git clone https://github.com/rahimsiddiqui/Portfolio.git
    ```
 
 2. **Navigate to the project directory**:
@@ -67,4 +67,4 @@ Let's build something amazing together!
 
 - **Email**: [rahimsiddiqui122@gmail.com](mailto:rahimsiddiqui122@gmail.com)
 - **LinkedIn**: [linkedin.com/in/rahimsiddiqui](https://linkedin.com/in/rahimsiddiqui)
-- **GitHub**: [@Rahimsiddiqui](https://github.com/Rahimsiddiqui)
+- **GitHub**: [@Rahimsiddiqui](https://github.com/rahimsiddiqui)

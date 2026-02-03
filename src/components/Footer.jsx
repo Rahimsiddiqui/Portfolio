@@ -12,17 +12,17 @@ function Footer() {
   const socialLinks = [
     {
       icon: <Twitter size={20} />,
-      href: "https://x.com",
+      href: "https://x.com/rahimdeveloper",
       label: "Twitter",
     },
     {
       icon: <Github size={20} />,
-      href: "https://github.com",
+      href: "https://github.com/rahimsiddiqui",
       label: "GitHub",
     },
     {
       icon: <Linkedin size={20} />,
-      href: "https://linkedin.com",
+      href: "https://linkedin.com/in/rahimdeveloper",
       label: "LinkedIn",
     },
     {

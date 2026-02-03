@@ -2,33 +2,14 @@ import { useState, useEffect } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "../context/ThemeContext";
 
 function Navbar() {
   const navigate = useNavigate();
+  const { theme, toggleTheme } = useTheme();
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [theme, setTheme] = useState(() => {
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("theme");
-      if (saved) return saved;
-      return window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
-    }
-    return "light";
-  });
   const [isScrolled, setIsScrolled] = useState(false);
-
-  // Handle theme changes
-  useEffect(() => {
-    const root = window.document.documentElement;
-    if (theme === "dark") {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
-    localStorage.setItem("theme", theme);
-  }, [theme]);
 
   // Scroll locking when mobile menu is open
   useEffect(() => {
@@ -53,10 +34,6 @@ function Navbar() {
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
-  };
-
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
 
   const isActive = (link) => {
@@ -183,7 +160,7 @@ function Navbar() {
                       navigate(btn.link);
                       setMobileMenuOpen(false);
                     }}
-                    className={`rounded-full font-space-grotesk transition-colors duration-200 text-xl ${isActive(btn.link) ? "text-blue-600 dark:text-blue-500 font-bold" : "text-primary/70 font-medium hover:text-primary"} cursor-pointer transition-colors duration-200`}
+                    className={`rounded-full font-space-grotesk transition-colors duration-200 text-xl ${isActive(btn.link) ? "text-primary font-bold" : "text-primary/80 font-medium hover:text-primary"} cursor-pointer transition-colors duration-200`}
                   >
                     {btn.label}
                   </button>

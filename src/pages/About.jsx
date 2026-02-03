@@ -22,7 +22,7 @@ const results = [
   { label: "Years Experience", value: "2+" },
   { label: "Projects Completed", value: "20+" },
   { label: "Happy Clients", value: "10+" },
-  { label: "Cups of Coffee", value: "500+" },
+  { label: "Cups of Coffee", value: "300+" },
 ];
 
 const ResultCard = ({ result, index, isLargeScreen }) => {
@@ -71,7 +71,7 @@ const ResultCard = ({ result, index, isLargeScreen }) => {
         <span className="text-4xl sm:text-5xl font-bold font-space-grotesk text-blue-600 dark:text-blue-500 mb-3 block">
           {result.value}
         </span>
-        <span className="text-secondary text-sm font-bold uppercase tracking-widest font-space-grotesk">
+        <span className="text-secondary text-sm lg:text-[0.75rem] font-bold uppercase tracking-widest font-space-grotesk">
           {result.label}
         </span>
       </div>
@@ -95,7 +95,7 @@ const About = () => {
   return (
     <div className="min-h-screen w-full h-full bg-background transition-colors duration-200">
       {/* Hero Section */}
-      <section className="flex flex-col justify-center items-start max-w-6xl mx-auto pt-3 px-5.5">
+      <section className="flex flex-col justify-center items-center md:items-start max-w-[520px] md:max-w-5xl mx-auto pt-3 px-5.5">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -118,7 +118,7 @@ const About = () => {
             delay: 0.3,
             ease: [0.2, 0.8, 0.2, 1],
           }}
-          className="text-primary/90 text-xl mt-6 sm:mt-7.5"
+          className="text-primary/90 text-lg text-center md:text-left mt-6 sm:mt-7.5"
         >
           I'm a multidisciplinary developer with a passion for minimalism and
           clean code.
@@ -132,7 +132,7 @@ const About = () => {
             delay: 0.4,
             ease: [0.2, 0.8, 0.2, 1],
           }}
-          className="text-secondary max-w-4xl text-md mt-6 sm:mt-7.5"
+          className="text-secondary max-w-4xl text-center md:text-left text-md mt-6 sm:mt-7.5"
         >
           With over 2 years of experience in full-stack development, I bridge
           the gap between design and engineering. I believe that the best
@@ -148,7 +148,7 @@ const About = () => {
             delay: window.innerWidth > 512 ? 0.5 : 0,
             ease: [0.2, 0.8, 0.2, 1],
           }}
-          className="text-secondary max-w-4xl text-md mt-6 sm:mt-5"
+          className="text-secondary max-w-4xl text-center md:text-left text-md mt-6 sm:mt-5"
         >
           Currently, I'm exploring the intersection of Generative AI and UI
           interfaces, looking for ways to make interactions more human and
@@ -158,7 +158,7 @@ const About = () => {
       </section>
 
       {/* Experience Section */}
-      <section className="flex flex-col justify-center items-start max-w-6xl mx-auto px-5.5 mt-4">
+      <section className="flex flex-col justify-center items-center md:items-start max-w-5xl mx-auto px-5.5 mt-4">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -167,7 +167,7 @@ const About = () => {
             duration: 0.8,
             ease: [0.2, 0.8, 0.2, 1],
           }}
-          className="text-primary text-2xl sm:text-3xl mt-6 font-bold font-space-grotesk"
+          className="text-primary text-3xl sm:text-4xl mt-6 font-bold font-space-grotesk"
         >
           Experience
         </motion.h2>
@@ -221,7 +221,7 @@ const About = () => {
       </section>
 
       {/* Results Section */}
-      <section className="flex flex-col justify-center items-start pb-20 max-w-6xl mx-auto w-full px-5.5 mt-2.5 sm:mt-2">
+      <section className="flex flex-col justify-center items-center md:items-start pb-20 max-w-5xl mx-auto w-full px-5.5 mt-2.5 sm:mt-2">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -230,7 +230,7 @@ const About = () => {
             duration: 0.8,
             ease: [0.2, 0.8, 0.2, 1],
           }}
-          className="text-primary text-2xl sm:text-3xl font-bold font-space-grotesk"
+          className="text-primary text-3xl sm:text-4xl font-bold font-space-grotesk"
         >
           The Results
         </motion.h2>

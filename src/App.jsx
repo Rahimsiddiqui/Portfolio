@@ -1,8 +1,8 @@
 import { lazy, Suspense } from "react";
-
 import { LazyMotion, domAnimation } from "framer-motion";
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import { useTheme } from "./context/ThemeContext";
 
 // Components
 import Navbar from "./components/Navbar";
@@ -14,8 +14,23 @@ const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
 
 function App() {
+  const { isDark } = useTheme();
+
   return (
     <LazyMotion features={domAnimation} strict={false}>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        limit={3}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme={!isDark ? "light" : "dark"}
+      />
       <Router>
         <Suspense
           fallback={

@@ -206,7 +206,7 @@ function LandingPage() {
   return (
     <div className="min-h-screen bg-background px-5.5 pt-3.5 transition-colors duration-200">
       {/* Hero Section */}
-      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto">
+      <section className="flex flex-col justify-center items-center max-w-5xl mx-auto">
         <p className="uppercase text-xs md:text-[0.8rem] text-secondary tracking-widest font-semibold">
           Fullstack developer
         </p>
@@ -290,7 +290,7 @@ function LandingPage() {
       </section>
 
       {/* Technologies Section */}
-      <section className="flex flex-col justify-center items-center py-10 max-w-6xl mx-auto w-full overflow-hidden">
+      <section className="flex flex-col justify-center items-center py-10 max-w-5xl mx-auto w-full overflow-hidden">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -369,7 +369,7 @@ function LandingPage() {
       </section>
 
       {/* Featured Work Section */}
-      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto pt-7 pb-10 w-full">
+      <section className="flex flex-col justify-center items-center max-w-5xl mx-auto pt-7 pb-10 w-full">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -379,7 +379,7 @@ function LandingPage() {
         >
           Featured Work
         </motion.h2>
-        <div className="grid gap-12.5 max-w-2xl lg:grid-cols-2 lg:max-w-6xl">
+        <div className="grid gap-12.5 max-w-2xl lg:grid-cols-2 lg:max-w-5xl">
           {featuredWork.map((work, idx) => {
             const isEven = idx % 2 === 0;
 
@@ -435,7 +435,7 @@ function LandingPage() {
       </section>
 
       {/* How I Work Section */}
-      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto pt-8 pb-10 w-full overflow-hidden">
+      <section className="flex flex-col justify-center items-center max-w-5xl mx-auto pt-8 pb-10 w-full overflow-hidden">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -469,7 +469,7 @@ function LandingPage() {
               },
             },
           }}
-          className="grid gap-6 sm:gap-8 max-w-3xl md:grid-cols-2 lg:grid-cols-3 lg:max-w-6xl w-full"
+          className="grid gap-6 sm:gap-8 max-w-3xl md:grid-cols-2 lg:grid-cols-3 lg:max-w-5xl w-full"
         >
           {howIWork.map((work, idx) => (
             <WorkCard
@@ -484,7 +484,7 @@ function LandingPage() {
       </section>
 
       {/* Testimonial Section */}
-      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto pt-8 pb-10 w-full">
+      <section className="flex flex-col justify-center items-center max-w-5xl mx-auto pt-8 pb-10 w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -532,7 +532,7 @@ function LandingPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto pt-6 pb-24 w-full px-4">
+      <section className="flex flex-col justify-center items-center max-w-5xl mx-auto pt-6 pb-24 w-full px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
