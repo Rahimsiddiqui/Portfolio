@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 // Lazy loaded components
 const LandingPage = lazy(() => import("./pages/LandingPage"));
 const About = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
           <Footer />
         </Suspense>

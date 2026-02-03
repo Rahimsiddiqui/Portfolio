@@ -12,6 +12,7 @@
   --color-border-secondary: #d1d5db;
 
   /* Custom Fonts */
+  --font-mono: "JetBrains Mono", monospace;
   --font-inter: "Inter", sans-serif;
   --font-space-grotesk: "Space Grotesk", sans-serif;
 }

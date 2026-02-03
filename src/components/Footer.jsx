@@ -68,29 +68,14 @@ function Footer() {
           </p>
           <a
             href="mailto:rahimsiddiqui122@gmail.com"
-            class="inline-flex items-center gap-3 text-primary font-medium group px-5 py-3 bg-background/80 border border-border rounded-full hover:border-border-secondary transition-all duration-300"
+            className="inline-flex items-center gap-3 text-primary font-medium group px-5 py-3 bg-background/80 border border-border rounded-full hover:border-border-secondary transition-all duration-300"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-mail text-secondary group-hover:text-primary transition-colors"
-              aria-hidden="true"
-            >
-              <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
-              <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-            </svg>
+            {window.innerWidth >= 450 && <Mail size={20} />}
             <span>rahimsiddiqui122@gmail.com</span>
           </a>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-center md:justify-center gap-10 sm:gap-40 md:gap-48 items-center md:items-start text-center md:text-left md:mr-20 lg:mr-40 xl:mr-60">
+        <div className="flex flex-col md:flex-row justify-center md:justify-center gap-10 md:gap-30 lg:gap-48 md:mx-20 items-center md:items-start text-center md:text-left lg:mr-40 xl:mr-50">
           {siteLinks.map((section, idx) => (
             <div key={idx}>
               <p className="text-md text-primary font-medium mb-4">
