@@ -9,13 +9,6 @@ const experiences = [
     description:
       "Built and deployed production-ready websites and web apps for clients. Projects include Qubli AI – a modern AI-focused web platform with responsive UI, custom animations, and optimized performance using React, Tailwind CSS, and JavaScript.",
   },
-  {
-    title: "Freelance Web Developer",
-    company: "Self-Employed",
-    duration: "2027 - Present",
-    description:
-      "Built and deployed production-ready websites and web apps for clients. Projects include Qubli AI – a modern AI-focused web platform with responsive UI, custom animations, and optimized performance using React, Tailwind CSS, and JavaScript.",
-  },
 ];
 
 const results = [
@@ -107,7 +100,7 @@ const About = () => {
           }}
           className="text-primary text-4xl sm:text-5xl font-bold font-space-grotesk"
         >
-          About Me
+          About <span className="text-blue-600 dark:text-blue-500">Me!</span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 30 }}

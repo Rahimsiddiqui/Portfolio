@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 const LandingPage = lazy(() => import("./pages/LandingPage"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
+const Projects = lazy(() => import("./pages/Projects"));
 
 function App() {
   const { isDark } = useTheme();
@@ -46,6 +47,7 @@ function App() {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/about" element={<About />} />
+            <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
           <Footer />

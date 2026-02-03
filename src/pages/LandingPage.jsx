@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, useAnimationControls } from "framer-motion";
+import { Briefcase } from "lucide-react";
+import ProjectCard from "../components/ProjectCard";
 
 const technologies = [
   { name: "HTML", icon: "/icons/html.svg" },
@@ -16,26 +18,38 @@ const technologies = [
 const featuredWork = [
   {
     title: "Qubli AI",
+    description:
+      "A comprehensive AI-driven platform for automated performance reviews and developer insights.",
     image: "/images/qubli-ai.avif",
     link: "https://qubli-ai.vercel.app",
+    github: "https://github.com/Qubli-AI/Qubli-AI",
     technologies: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
   },
   {
     title: "Project 2",
+    description:
+      "A sophisticated web application demonstrating advanced frontend architecture and state management.",
     image: "/images/project2.png",
     link: "https://qubli-ai.vercel.app",
+    github: "https://github.com/rahimsiddiqui",
     technologies: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
   },
   {
     title: "Project 3",
+    description:
+      "An innovative digital experience focused on minimalist design and seamless user interactions.",
     image: "/images/project3.png",
     link: "https://qubli-ai.vercel.app",
+    github: "https://github.com/rahimsiddiqui",
     technologies: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
   },
   {
     title: "Project 4",
+    description:
+      "A scalable full-stack solution built with performance and accessibility at its core.",
     image: "/images/project4.png",
     link: "https://qubli-ai.vercel.app",
+    github: "https://github.com/rahimsiddiqui",
     technologies: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
   },
 ];
@@ -151,8 +165,8 @@ function LandingPage() {
   const fullLength = part1.length + part2.length;
 
   const controls = useAnimationControls();
-  const ITEM_WIDTH = 152; // 120px card + 32px gap
-  const LOOP_POINT = -1216; // 152 * 8 technologies
+  const ITEM_WIDTH = 180; // 140px card + 40px gap
+  const LOOP_POINT = -1440; // 180 * 8 technologies
   const xPos = useRef(0);
 
   const startInfiniteScroll = useCallback(
@@ -301,13 +315,13 @@ function LandingPage() {
           My Tech Stack
         </motion.h2>
 
-        <div className="relative w-full">
-          {/* Gradient Overlays */}
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-linear-to-r from-background to-transparent z-10"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-linear-to-l from-background to-transparent z-10"></div>
+        <div className="relative w-full group/slider">
+          {/* Gradient Overlays  */}
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-linear-to-r from-background via-background/60 to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-linear-to-l from-background via-background/60 to-transparent z-10 pointer-events-none"></div>
 
           <motion.div
-            className="flex gap-8 whitespace-nowrap cursor-grab active:cursor-grabbing"
+            className="flex gap-10 whitespace-nowrap cursor-grab active:cursor-grabbing py-4"
             drag="x"
             dragConstraints={{ right: 0, left: LOOP_POINT * 2 }}
             animate={controls}
@@ -351,14 +365,19 @@ function LandingPage() {
             ].map((tech, idx) => (
               <div
                 key={idx}
-                className="flex flex-col items-center justify-center min-w-[130px] p-6 bg-surface border border-border rounded-2xl hover:border-border-secondary transition-colors select-none"
+                className="flex flex-col items-center justify-center min-w-[140px] p-8 bg-surface/30 backdrop-blur-xl border border-border/60 rounded-3xl hover:border-blue-600/30 hover:shadow-2xl hover:shadow-blue-600/5 hover:-translate-y-1.5 transition-all duration-300 select-none group"
               >
-                <img
-                  src={tech.icon}
-                  alt={tech.name}
-                  className={`w-12 h-12 mb-3 object-contain pointer-events-none ${tech.name === "Express" ? "dark:invert" : ""}`}
-                />
-                <span className="text-secondary text-sm font-medium">
+                <div className="relative mb-4">
+                  <div className="absolute inset-0 bg-blue-600/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <img
+                    src={tech.icon}
+                    alt={tech.name}
+                    className={`w-14 h-14 relative z-10 object-contain pointer-events-none transition-transform duration-300 group-hover:scale-103 ${
+                      tech.name === "Express" ? "dark:invert" : ""
+                    }`}
+                  />
+                </div>
+                <span className="text-secondary text-sm font-space-grotesk font-bold uppercase leading-wide transition-colors duration-300 group-hover:text-primary">
                   {tech.name}
                 </span>
               </div>
@@ -379,34 +398,10 @@ function LandingPage() {
         >
           Featured Work
         </motion.h2>
-        <div className="grid gap-12.5 max-w-2xl lg:grid-cols-2 lg:max-w-5xl">
-          {featuredWork.map((work, idx) => {
-            const isEven = idx % 2 === 0;
-
-            return (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, x: isEven ? -20 : 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.2 }}
-                className="flex flex-col items-start justify-center w-full transition-colors cursor-pointer select-none group"
-                onClick={() => navigate(`/projects/${work.id}`)}
-              >
-                <img
-                  src="https://picsum.photos/800/600?random=1"
-                  alt={work.title}
-                  className="w-full h-full object-cover transition-transform group-hover:scale-102 opacity-90 group-hover:opacity-100 duration-400 rounded-xl"
-                />
-                <span className="text-primary text-xl sm:text-2xl ml-0.5 mt-4 sm:mt-6 font-medium">
-                  {work.title}
-                </span>
-                <span className="text-secondary text-sm ml-0.5 mt-2 font-medium">
-                  {work.technologies.join(" • ")}
-                </span>
-              </motion.div>
-            );
-          })}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 max-w-5xl">
+          {featuredWork.map((work, idx) => (
+            <ProjectCard key={idx} project={work} idx={idx} />
+          ))}
         </div>
         <p
           className="text-primary/90 hover:text-primary text-sm sm:text-md ml-0.5 mt-13 lg:mt-16 font-medium flex justify-center items-center gap-1.5 cursor-pointer group transition-colors transition-transform duration-200"
@@ -574,23 +569,10 @@ function LandingPage() {
             <div className="flex flex-col sm:flex-row gap-5">
               <button
                 onClick={() => navigate("/contact")}
-                className="group relative flex items-center justify-center gap-2 bg-primary text-background px-9 py-4 rounded-full font-medium text-md hover:scale-102 transition-all duration-200 cursor-pointer overflow-hidden"
+                className="group relative flex items-center justify-center gap-3 bg-primary text-background px-7 py-4 rounded-full font-medium text-md hover:scale-102 transition-all duration-200 cursor-pointer overflow-hidden"
               >
+                <Briefcase size={20} />
                 <span className="relative z-10">Let's Chat</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M5 12h14" />
-                  <path d="m12 5 7 7-7 7" />
-                </svg>
                 {/* Button shine effect */}
                 <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shine_0.75s_ease-in-out] pointer-events-none"></div>
               </button>
