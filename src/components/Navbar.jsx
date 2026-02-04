@@ -86,7 +86,7 @@ function Navbar() {
                       navigate(btn.link);
                       setMobileMenuOpen(false);
                     }}
-                    className={`rounded-full text-md ${isActive(btn.link) ? "text-primary font-semibold" : "text-secondary hover:text-primary/80"} transition-colors duration-200 font-medium cursor-pointer`}
+                    className={`rounded-full text-primary text-md hover:opacity-100 ${isActive(btn.link) ? "opacity-100 font-semibold" : "opacity-65 hover:opacity-70"} transition-opacity duration-200 font-medium cursor-pointer`}
                   >
                     {btn.label}
                   </button>
@@ -104,7 +104,7 @@ function Navbar() {
                 )}
               </button>
               <button
-                className="hidden md:flex py-2 px-6 bg-primary hover:bg-primary/95 transition-all duration-200 hover:scale-102 rounded-full font-medium cursor-pointer text-background"
+                className="hidden md:flex py-2 px-6 bg-primary hover:bg-primary/95 transition-transform duration-200 hover:scale-102 rounded-full font-medium cursor-pointer text-background"
                 onClick={() => navigate("/contact")}
               >
                 Let's Talk

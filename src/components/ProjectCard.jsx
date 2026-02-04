@@ -21,7 +21,7 @@ const ProjectCard = ({ project, idx }) => {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true }}
-      className="group flex flex-col bg-surface/30 backdrop-blur-xl border border-border/60 rounded-4xl overflow-hidden hover:border-blue-600/30 transition-colors duration-200 hover:shadow-2xl hover:shadow-blue-600/5 cursor-pointer h-full"
+      className="group flex flex-col bg-surface/30 backdrop-blur-xl border border-border/60 rounded-4xl overflow-hidden hover:border-blue-600/30 transition-colors duration-200 hover:shadow-xl hover:shadow-blue-600/5 cursor-pointer h-full"
     >
       {/* Project Image */}
       <div className="relative aspect-video overflow-hidden">
@@ -34,7 +34,7 @@ const ProjectCard = ({ project, idx }) => {
           }}
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-linear-to-t from-background/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-linear-to-t from-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 
       {/* Project Content */}

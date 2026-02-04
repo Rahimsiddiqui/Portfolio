@@ -271,7 +271,7 @@ function LandingPage() {
           }`}
         >
           <button
-            className="group flex items-center gap-2 bg-primary hover:bg-primary/95  dark:hover:bg-primary/90 cursor-pointer px-10 py-4 text-background transition-colors transition-transform duration-200 rounded-full font-medium hover:scale-102"
+            className="group flex items-center gap-2 bg-primary hover:bg-primary/95 cursor-pointer px-10 py-4 text-background transition-transform duration-200 rounded-full font-medium hover:scale-102"
             onClick={() => navigate("/projects")}
           >
             View Work
@@ -294,7 +294,7 @@ function LandingPage() {
             </span>
           </button>
           <button
-            className="bg-surface text-primary border border-border px-10 py-4 rounded-full font-medium transition-colors transition-transform duration-200 hover:scale-102 cursor-pointer hover:border-border-secondary"
+            className="bg-surface text-primary border border-border px-10 py-4 rounded-full font-medium transition-transform duration-200 hover:scale-102 cursor-pointer hover:border-border-secondary"
             onClick={() => navigate("/contact")}
           >
             Get in Touch
@@ -377,7 +377,7 @@ function LandingPage() {
                     }`}
                   />
                 </div>
-                <span className="text-secondary text-sm font-space-grotesk font-bold uppercase leading-wide transition-colors duration-300 group-hover:text-primary">
+                <span className="text-secondary text-sm font-space-grotesk font-bold uppercase tracking-wider transition-colors duration-300 group-hover:text-primary">
                   {tech.name}
                 </span>
               </div>
@@ -569,7 +569,7 @@ function LandingPage() {
             <div className="flex flex-col sm:flex-row gap-5">
               <button
                 onClick={() => navigate("/contact")}
-                className="group relative flex items-center justify-center gap-3 bg-primary text-background px-7 py-4 rounded-full font-medium text-md hover:scale-102 transition-all duration-200 cursor-pointer overflow-hidden"
+                className="group relative flex items-center justify-center gap-3 bg-primary hover:bg-primary/95 text-background px-7 py-4 rounded-full font-medium text-md hover:scale-102 transition-transform duration-200 cursor-pointer overflow-hidden"
               >
                 <Briefcase size={20} />
                 <span className="relative z-10">Let's Chat</span>

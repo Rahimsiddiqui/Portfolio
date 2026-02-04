@@ -158,6 +158,7 @@ const About = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{
             duration: 0.8,
+            delay: isLargeScreen ? 0.5 : 0,
             ease: [0.2, 0.8, 0.2, 1],
           }}
           className="text-primary text-3xl sm:text-4xl mt-6 font-bold font-space-grotesk"
