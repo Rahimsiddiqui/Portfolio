@@ -20,7 +20,7 @@ import { Server } from "socket.io";
 import { createServer } from "http";
 
 // Models
-import Blog from "./models/blog.js";
+import Blog from "./models/Blog.js";
 
 // Configuration
 const app = express();
