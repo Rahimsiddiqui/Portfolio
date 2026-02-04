@@ -100,7 +100,7 @@ const Contact = () => {
           transition={{ duration: 0.8, ease: [0.2, 0.8, 0.2, 1] }}
           className="flex flex-col items-center md:items-start text-center md:text-left"
         >
-          <h1 className="text-primary text-4xl sm:text-5xl md:text-6xl font-bold font-space-grotesk tracking-tight">
+          <h1 className="text-primary text-4xl sm:text-5xl font-bold font-space-grotesk tracking-tight">
             Let's{" "}
             <span className="text-blue-600 dark:text-blue-500">Connect!</span>
           </h1>

@@ -1,8 +1,9 @@
 import { Github, Linkedin, Mail, Twitter } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 
 function Footer() {
   const navigate = useNavigate();
+  const location = useLocation();
   const currentYear = new Date().getFullYear();
 
   const isActive = (link) => {
@@ -83,14 +84,14 @@ function Footer() {
               </p>
               <div className="flex flex-col gap-3.5">
                 {section.content.map((link, linkIdx) => (
-                  <a
+                  <Link
                     key={linkIdx}
-                    href={link.href}
+                    to={link.href}
                     className={`hover:text-primary ${isActive(link.href) ? "text-primary font-semibold" : "text-secondary"} transition-colors duration-200 text-sm`}
                     aria-label={link.name}
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
