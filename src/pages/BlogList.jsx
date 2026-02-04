@@ -18,7 +18,9 @@ const BlogList = () => {
           setLoading(false);
         }
 
-        const response = await fetch("http://localhost:5000/api/blogs");
+        const response = await fetch(
+          `${process.env.VITE_BACKEND_URL}/api/blogs`,
+        );
         const data = await response.json();
 
         if (response.ok) {

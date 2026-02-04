@@ -21,11 +21,15 @@ This portfolio serves as a central hub for my professional work, featuring dynam
 - **Animations**: [Framer Motion 12](https://www.framer.com/motion/)
 - **Icons**: [Lucide React](https://lucide.dev/)
 - **Routing**: [React Router 7](https://reactrouter.com/)
-- **Database**: [MongoDB](https://www.mongodb.com/) (Backend Integration Ready)
+- **Database**: [MongoDB](https://www.mongodb.com/)
 
 ## 📁 Project Structure
 
 ```text
+/server
+  /models         # Model for database
+  index.js        # Server entry point
+
 /src
   /components     # Reusable UI components
   /pages          # Page components (Home, Projects, etc.)
@@ -56,9 +60,41 @@ To run this project locally:
    npm install
    ```
 
-4. **Start the development server**:
+4. **Environment Configuration**:
+   Create a `.env` file in the root directory and add the following variables:
+
+   ```env
+   # Database
+   MONGODB_URI=YOUR_MONGODB_URI
+
+   # URLS
+   FRONTEND_URL=http://localhost:5173
+   VITE_BACKEND_URL=http://localhost:5000
+
+   # Node ENV & PORT
+   NODE_ENV=development
+   PORT=5000
+   ```
+
+5. **Start the development server**:
+   You can run the frontend and backend separately, or use the concurrent script:
+
+   **Run both (Recommended):**
+
+   ```bash
+   npm run dev:all
+   ```
+
+   **Run Frontend only:**
+
    ```bash
    npm run dev
+   ```
+
+   **Run Backend only:**
+
+   ```bash
+   npm run server
    ```
 
 ## 📬 Contact
@@ -66,5 +102,5 @@ To run this project locally:
 Let's build something amazing together!
 
 - **Email**: [rahimsiddiqui122@gmail.com](mailto:rahimsiddiqui122@gmail.com)
-- **LinkedIn**: [linkedin.com/in/rahimsiddiqui](https://linkedin.com/in/rahimsiddiqui)
+- **LinkedIn**: [linkedin.com/in/rahimdeveloper](https://www.linkedin.com/in/rahimdeveloper)
 - **GitHub**: [@Rahimsiddiqui](https://github.com/rahimsiddiqui)

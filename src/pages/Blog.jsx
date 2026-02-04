@@ -28,7 +28,9 @@ const Blog = () => {
         }
 
         // 2. Fetch from API if not in cache
-        const response = await fetch(`http://localhost:5000/api/blog/${slug}`);
+        const response = await fetch(
+          `${process.env.VITE_BACKEND_URL}/api/blog/${slug}`,
+        );
         const data = await response.json();
 
         if (response.ok) {
@@ -50,7 +52,7 @@ const Blog = () => {
   useEffect(() => {
     if (!post) return;
 
-    const socket = io("http://localhost:5000", {
+    const socket = io(`${process.env.VITE_BACKEND_URL}`, {
       withCredentials: true,
     });
 
