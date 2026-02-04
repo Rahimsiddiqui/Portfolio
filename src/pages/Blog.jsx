@@ -139,7 +139,7 @@ const Blog = () => {
               <span className="text-primary text-sm font-bold font-space-grotesk tracking-wider uppercase">
                 Rahim Siddiqui
               </span>
-              <span className="text-secondary text-[10px] uppercase tracking-[0.1em]">
+              <span className="text-secondary text-[10px] uppercase tracking-widest">
                 Author
               </span>
             </div>
