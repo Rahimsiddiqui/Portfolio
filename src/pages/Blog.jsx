@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { io } from "socket.io-client";
+import { blogs as staticBlogs } from "../data/blogs";
 
 const Blog = () => {
   const { slug } = useParams();
@@ -10,72 +10,26 @@ const Blog = () => {
   const [views, setViews] = useState(0);
 
   useEffect(() => {
-    const fetchPost = async () => {
-      try {
-        // 1. Try to find in localStorage
-        const cachedBlogs = localStorage.getItem("blogs");
-        if (cachedBlogs) {
-          const blogs = JSON.parse(cachedBlogs);
-          const foundPost = blogs.find(
-            (p) => p.slug === slug || p._id === slug,
-          );
-          if (foundPost) {
-            setPost(foundPost);
-            setViews(foundPost.views || 0);
-            setLoading(false);
-            return;
-          }
-        }
-
-        // 2. Fetch from API if not in cache
-        const response = await fetch(
-          `${import.meta.env.VITE_BACKEND_URL}/api/blog/${slug}`,
-        );
-        const data = await response.json();
-
-        if (response.ok) {
-          setPost(data);
-          setViews(data.views || 0);
-        } else {
-          console.error("Post not found");
-        }
-      } catch (error) {
-        console.error("Error fetching post:", error);
-      } finally {
-        setLoading(false);
+    const fetchPost = () => {
+      // Find post in static data
+      const foundPost = staticBlogs.find(
+        (p) => p.slug === slug || p._id === slug,
+      );
+      if (foundPost) {
+        setPost(foundPost);
+        setViews(foundPost.views || 0);
+      } else {
+        console.error("Post not found");
       }
+      setLoading(false);
     };
 
     fetchPost();
   }, [slug]);
 
   useEffect(() => {
-    if (!post) return;
-
-    const socket = io(`${import.meta.env.VITE_BACKEND_URL}`, {
-      withCredentials: true,
-    });
-
-    socket.emit("view-blog", post.slug);
-
-    socket.on("view-count-update", (data) => {
-      if (data.slug === post.slug) {
-        setViews(data.views);
-      }
-    });
-
-    socket.on("set-cookie", (data) => {
-      let cookieString = `${data.name}=${data.value}; path=/`;
-      if (data.options?.maxAge) {
-        cookieString += `; max-age=${data.options.maxAge / 1000}`;
-      }
-      document.cookie = cookieString;
-    });
-
-    return () => {
-      socket.disconnect();
-    };
-  }, [post?.slug]); // Only run when we have the slug
+    window.scrollTo(0, 0);
+  }, []);
 
   if (loading) {
     return (

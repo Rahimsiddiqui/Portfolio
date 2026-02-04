@@ -1,42 +1,13 @@
-import { motion } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
-
-import { useState, useEffect } from "react";
+import { blogs as staticBlogs } from "../data/blogs";
 
 const BlogList = () => {
   const navigate = useNavigate();
-  const [blogPosts, setBlogPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [blogPosts, setBlogPosts] = useState(staticBlogs);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const cachedBlogs = localStorage.getItem("blogs");
-
-        if (cachedBlogs) {
-          setBlogPosts(JSON.parse(cachedBlogs));
-          setLoading(false);
-        }
-
-        const response = await fetch(
-          `${import.meta.env.VITE_BACKEND_URL}/api/blogs`,
-        );
-        const data = await response.json();
-
-        if (response.ok) {
-          setBlogPosts(data);
-          localStorage.setItem("blogs", JSON.stringify(data));
-        } else {
-          console.error("Failed to fetch blogs");
-        }
-      } catch (error) {
-        console.error("Error fetching blogs:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchBlogs();
+    // Scroll to top on mount
+    window.scrollTo(0, 0);
   }, []);
   return (
     <div className="min-h-screen w-full bg-background transition-colors duration-200 pb-24">
