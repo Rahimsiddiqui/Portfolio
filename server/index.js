@@ -1,7 +1,12 @@
 // Dotenv Configuration & DNS
 import dotenv from "dotenv";
 import dns from "dns";
+import path from "path";
+import { fileURLToPath } from "url";
 dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Fix for MongoDB Atlas connection issues locally (querySrv ECONNREFUSED)
 dns.setDefaultResultOrder("ipv4first");
@@ -138,6 +143,16 @@ app.get("/api/blog/:idOrSlug", async (req, res) => {
 });
 
 // Start Server
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../dist")));
+
+  app.get("*", (req, res) => {
+    if (!req.path.startsWith("/api")) {
+      res.sendFile(path.join(__dirname, "../dist/index.html"));
+    }
+  });
+}
+
 httpServer.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

@@ -19,7 +19,7 @@ const BlogList = () => {
         }
 
         const response = await fetch(
-          `${process.env.VITE_BACKEND_URL}/api/blogs`,
+          `${import.meta.env.VITE_BACKEND_URL}/api/blogs`,
         );
         const data = await response.json();
 

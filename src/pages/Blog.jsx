@@ -29,7 +29,7 @@ const Blog = () => {
 
         // 2. Fetch from API if not in cache
         const response = await fetch(
-          `${process.env.VITE_BACKEND_URL}/api/blog/${slug}`,
+          `${import.meta.env.VITE_BACKEND_URL}/api/blog/${slug}`,
         );
         const data = await response.json();
 
@@ -52,7 +52,7 @@ const Blog = () => {
   useEffect(() => {
     if (!post) return;
 
-    const socket = io(`${process.env.VITE_BACKEND_URL}`, {
+    const socket = io(`${import.meta.env.VITE_BACKEND_URL}`, {
       withCredentials: true,
     });
 
