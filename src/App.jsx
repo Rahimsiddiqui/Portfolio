@@ -15,6 +15,8 @@ const Contact = lazy(() => import("./pages/Contact"));
 const Projects = lazy(() => import("./pages/Projects"));
 const Terms = lazy(() => import("./pages/Terms"));
 const Privacy = lazy(() => import("./pages/Privacy"));
+const BlogList = lazy(() => import("./pages/BlogList"));
+const Blog = lazy(() => import("./pages/Blog"));
 
 function App() {
   const { isDark } = useTheme();
@@ -53,6 +55,8 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/privacy" element={<Privacy />} />
+            <Route path="/blog" element={<BlogList />} />
+            <Route path="/blog/:slug" element={<Blog />} />
           </Routes>
           <Footer />
         </Suspense>

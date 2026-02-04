@@ -44,7 +44,7 @@ function Navbar() {
     { label: "Home", link: "/" },
     { label: "Projects", link: "/projects" },
     { label: "About", link: "/about" },
-    { label: "Blogs", link: "/blogs" },
+    { label: "Blog", link: "/blog" },
     { label: "Contact", link: "/contact" },
   ];
 
