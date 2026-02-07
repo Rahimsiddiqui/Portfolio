@@ -86,7 +86,7 @@ const Blog = () => {
           </Link>
 
           <div className="flex items-center gap-3 mb-6 group/author">
-            <div className="w-10 h-10 flex justify-center items-center font-bold rounded-full bg-linear-to-br from-blue-500 to-purple-600 border border-white/10 shadow-md shadow-blue-500/20">
+            <div className="w-10 h-10 text-white flex justify-center items-center font-bold rounded-full bg-linear-to-br from-blue-500 to-purple-600 border border-white/10 shadow-md shadow-blue-500/20">
               M
             </div>
             <div className="flex flex-col">

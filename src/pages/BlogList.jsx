@@ -34,10 +34,10 @@ const BlogList = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               onClick={() => navigate(`/blog/${post.slug}`)}
-              className="group flex flex-col bg-background   border border-white/5 rounded-2xl overflow-hidden hover:border-blue-500/30 transition-all duration-300 h-full shadow-lg hover:shadow-blue-500/10 cursor-pointer"
+              className="group flex flex-col bg-background border border-white/5 rounded-2xl overflow-hidden hover:border-blue-500/30 transition-all duration-300 h-full shadow-lg hover:shadow-blue-500/10 cursor-pointer"
             >
               <div className="px-5 pt-6 flex items-center gap-2 group/author">
-                <div className="w-8 h-8 flex justify-center items-center text-xs font-bold rounded-full bg-linear-to-br from-blue-500 to-purple-600 border border-white/10 shadow-md shadow-blue-500/20">
+                <div className="w-8 h-8 flex text-white justify-center items-center text-xs font-bold rounded-full bg-linear-to-br from-blue-500 to-purple-600 border border-white/10 shadow-md shadow-blue-500/20">
                   M
                 </div>
                 <div className="flex flex-col">
@@ -46,7 +46,7 @@ const BlogList = () => {
                   </span>
                 </div>
               </div>
-              <div className="block overflow-hidden aspect-video w-full relative p-5 pb-0 bg-surface/50">
+              <div className="block overflow-hidden transition-colors duration-300 aspect-video w-full relative p-5 pb-0 bg-background">
                 <div className="w-full h-full rounded-xl overflow-hidden">
                   <img
                     src={post.image}
@@ -74,7 +74,7 @@ const BlogList = () => {
                 </div>
 
                 <div className="block group/title">
-                  <h2 className="text-primary text-2xl font-bold font-space-grotesk mb-3 leading-tight group-hover/title:text-blue-600 dark:group-hover:text-blue-500 truncate transition-colors">
+                  <h2 className="text-primary text-2xl font-bold font-space-grotesk mb-3 leading-tight group-hover/title:text-blue-600 dark:group-hover:text-blue-500 truncate transition-colors duration-100">
                     {post.title}
                   </h2>
                 </div>

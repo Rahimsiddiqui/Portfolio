@@ -259,7 +259,7 @@ function LandingPage() {
               : "opacity-0 translate-y-4"
           }`}
         >
-          A Fullstack engineer who builds high-performance, accessible web
+          A Fullstack developer who builds high-performance, accessible web
           applications with React and MongoDB. I blend technical precision with
           creative digital experiences.
         </p>

@@ -1,4 +1,4 @@
-# Rahim Siddiqui | Fullstack Engineer
+# Rahim Siddiqui | Fullstack Developer
 
 Welcome to my professional portfolio. I engineer digital experiences where technical precision meets creative soul. This project showcases my skills in building high-performance, accessible, and scalable web applications.
 
