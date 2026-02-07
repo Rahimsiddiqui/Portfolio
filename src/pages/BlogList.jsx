@@ -1,9 +1,9 @@
 import { blogs as staticBlogs } from "../data/blogs";
+import { useNavigate, Link } from "react-router-dom";
 
 const BlogList = () => {
   const navigate = useNavigate();
   const [blogPosts, setBlogPosts] = useState(staticBlogs);
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     // Scroll to top on mount
