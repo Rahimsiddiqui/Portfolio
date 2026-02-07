@@ -12,15 +12,13 @@ const ProjectCard = ({ project, idx }) => {
   };
 
   return (
-    <motion.a
+    <motion.div
       key={idx}
-      href={project.link}
-      target="_blank"
-      rel="noopener noreferrer"
       variants={itemVariants}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true }}
+      onClick={() => window.open(project.link, "_blank", "noopener,noreferrer")}
       className="group flex flex-col bg-surface/30 backdrop-blur-xl border border-border/60 rounded-4xl overflow-hidden hover:border-blue-600/30 transition-colors duration-200 hover:shadow-xl hover:shadow-blue-600/5 cursor-pointer h-full"
     >
       {/* Project Image */}
@@ -43,7 +41,7 @@ const ProjectCard = ({ project, idx }) => {
           <h3 className="text-primary text-2xl font-bold font-space-grotesk tracking-tight">
             {project.title}
           </h3>
-          <div className="flex -mt-2 gap-3">
+          <div className="flex -mt-2 gap-2">
             <a
               href={project.github}
               target="_blank"
@@ -83,7 +81,7 @@ const ProjectCard = ({ project, idx }) => {
           ))}
         </div>
       </div>
-    </motion.a>
+    </motion.div>
   );
 };
 

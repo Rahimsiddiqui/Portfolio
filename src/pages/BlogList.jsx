@@ -1,14 +1,12 @@
+import { useState, useEffect } from "react";
 import { blogs as staticBlogs } from "../data/blogs";
 import { useNavigate, Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const BlogList = () => {
   const navigate = useNavigate();
   const [blogPosts, setBlogPosts] = useState(staticBlogs);
 
-  useEffect(() => {
-    // Scroll to top on mount
-    window.scrollTo(0, 0);
-  }, []);
   return (
     <div className="min-h-screen w-full bg-background transition-colors duration-200 pb-24">
       <section className="max-w-5xl mx-auto pt-16 px-5.5">
@@ -48,12 +46,15 @@ const BlogList = () => {
                   </span>
                 </div>
               </div>
-              <div className="block overflow-hidden aspect-video w-full relative p-5 pb-0">
+              <div className="block overflow-hidden aspect-video w-full relative p-5 pb-0 bg-surface/50">
                 <div className="w-full h-full rounded-xl overflow-hidden">
                   <img
                     src={post.image}
                     alt={post.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    onError={(e) => {
+                      e.target.src = `https://picsum.photos/800/450?random=${index}`;
+                    }}
                   />
                 </div>
                 <div className="absolute inset-0 bg-linear-to-t from-background/20 to-transparent opacity-0 group-hover:opacity-60 transition-opacity duration-300 pointer-events-none" />
@@ -70,27 +71,10 @@ const BlogList = () => {
                       { month: "short", day: "numeric", year: "numeric" },
                     )}
                   </span>
-                  <span className="text-xs text-secondary font-mono flex items-center gap-1">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
-                      <circle cx="12" cy="12" r="3" />
-                    </svg>
-                    {post.views || 0}
-                  </span>
                 </div>
 
                 <div className="block group/title">
-                  <h2 className="text-primary text-2xl font-bold font-space-grotesk mb-3 leading-tight group-hover/title:text-blue-600 dark:group-hover:text-blue-500 transition-colors">
+                  <h2 className="text-primary text-2xl font-bold font-space-grotesk mb-3 leading-tight group-hover/title:text-blue-600 dark:group-hover:text-blue-500 truncate transition-colors">
                     {post.title}
                   </h2>
                 </div>
