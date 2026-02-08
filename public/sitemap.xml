@@ -2,17 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://rahim-dev.vercel.app/</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-08</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://rahim-dev.vercel.app/about</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rahim-dev.vercel.app/projects</loc>
+    <lastmod>2026-02-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rahim-dev.vercel.app/contact</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-08</lastmod>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rahim-dev.vercel.app/terms</loc>
+    <lastmod>2026-02-08</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rahim-dev.vercel.app/privacy</loc>
+    <lastmod>2026-02-08</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rahim-dev.vercel.app/blog</loc>
+    <lastmod>2026-02-08</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rahim-dev.vercel.app/blog/mastering-react-19</loc>
+    <lastmod>2026-02-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://rahim-dev.vercel.app/blog/designing-modern-web</loc>
+    <lastmod>2026-02-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://rahim-dev.vercel.app/blog/ai-creative-workflows</loc>
+    <lastmod>2026-02-08</lastmod>
+    <priority>0.6</priority>
   </url>
 </urlset>
