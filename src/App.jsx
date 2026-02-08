@@ -7,6 +7,7 @@ import { useTheme } from "./context/ThemeContext";
 // Components
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 // Lazy loaded components
 const LandingPage = lazy(() => import("./pages/LandingPage"));
@@ -37,6 +38,7 @@ function App() {
         theme={!isDark ? "light" : "dark"}
       />
       <Router>
+        <ScrollToTop />
         <Suspense
           fallback={
             <div className="flex justify-center items-center h-screen bg-background">
