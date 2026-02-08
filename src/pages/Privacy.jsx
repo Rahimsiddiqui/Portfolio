@@ -38,8 +38,7 @@ const Privacy = () => {
           transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
           className="text-primary text-5xl text-center sm:text-left font-bold font-space-grotesk mb-4"
         >
-          Privacy{" "}
-          <span className="text-blue-600 dark:text-blue-500">Policy</span>
+          Privacy <span className="text-accent">Policy</span>
         </motion.h1>
 
         <motion.p

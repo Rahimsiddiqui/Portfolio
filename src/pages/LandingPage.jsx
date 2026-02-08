@@ -245,7 +245,7 @@ function LandingPage() {
           ) : (
             t1
           )}
-          {t2 && <span className="text-blue-600 dark:text-blue-500">{t2}</span>}
+          {t2 && <span className="text-accent">{t2}</span>}
           {t3}
           {index < fullLength && (
             <span className="inline-block w-[3px] h-11.5 bg-blue-600 ml-0.5 -mb-1 animate-pulse"></span>
@@ -487,7 +487,7 @@ function LandingPage() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="text-center max-w-4xl mx-auto"
         >
-          <div className="mb-7 text-accent text-blue-600 dark:text-blue-500">
+          <div className="mb-7 text-accent text-accent">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -554,10 +554,7 @@ function LandingPage() {
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-space-grotesk font-bold mb-9 tracking-tight text-primary leading-[1.1]">
               Ready to build <br className="hidden md:block" />
-              something{" "}
-              <span className="text-blue-600 dark:text-blue-500">
-                extraordinary?
-              </span>
+              something <span className="text-accent">extraordinary?</span>
             </h2>
 
             <p className="text-lg md:text-xl text-secondary max-w-2xl mx-auto mb-8 leading-relaxed">

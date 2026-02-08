@@ -38,8 +38,7 @@ const Terms = () => {
           transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
           className="text-primary text-4xl sm:text-5xl text-center sm:text-left font-bold font-space-grotesk mb-4"
         >
-          Terms of{" "}
-          <span className="text-blue-600 dark:text-blue-500">Service</span>
+          Terms of <span className="text-accent">Service</span>
         </motion.h1>
 
         <motion.p

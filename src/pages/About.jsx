@@ -61,7 +61,7 @@ const ResultCard = ({ result, index, isLargeScreen }) => {
       </span>
 
       <div className="relative z-10">
-        <span className="text-4xl sm:text-5xl font-bold font-space-grotesk text-blue-600 dark:text-blue-500 mb-3 block">
+        <span className="text-4xl sm:text-5xl font-bold font-space-grotesk text-accent mb-3 block">
           {result.value}
         </span>
         <span className="text-secondary text-sm lg:text-[0.75rem] font-bold uppercase tracking-widest font-space-grotesk">
@@ -100,7 +100,7 @@ const About = () => {
           }}
           className="text-primary text-4xl sm:text-5xl font-bold font-space-grotesk"
         >
-          About <span className="text-blue-600 dark:text-blue-500">Me!</span>
+          About <span className="text-accent">Me!</span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 30 }}

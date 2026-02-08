@@ -52,8 +52,7 @@ const Projects = () => {
           className="flex flex-col items-center md:items-start text-center md:text-left mb-16"
         >
           <h1 className="text-primary text-4xl sm:text-5xl font-bold font-space-grotesk tracking-tight">
-            Selected{" "}
-            <span className="text-blue-600 dark:text-blue-500">Projects</span>
+            Selected <span className="text-accent">Projects</span>
           </h1>
           <p className="text-secondary text-lg max-w-xl mt-5">
             A showcase of my recent work, ranging from full-stack applications

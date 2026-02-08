@@ -46,10 +46,7 @@ const Blog = () => {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-background">
         <h1 className="text-primary text-2xl font-bold mb-4">Post not found</h1>
-        <Link
-          to="/blog"
-          className="text-blue-600 dark:text-blue-500 hover:underline"
-        >
+        <Link to="/blog" className="text-accent hover:underline">
           Back to Blog
         </Link>
       </div>
@@ -100,7 +97,7 @@ const Blog = () => {
           </div>
 
           <div className="flex items-center gap-3 mb-8">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-blue-600 dark:text-blue-500 bg-blue-500/10 px-3 py-1.5 rounded-full border border-blue-500/20">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-accent bg-blue-500/10 px-3 py-1.5 rounded-full border border-blue-500/20">
               {post.category}
             </span>
             <span className="text-xs text-secondary font-mono">

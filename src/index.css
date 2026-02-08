@@ -10,6 +10,7 @@
   --color-secondary: #6b7280;
   --color-border: #e5e7eb;
   --color-border-secondary: #d1d5db;
+  --color-accent: #2563eb;
 
   /* Custom Fonts */
   --font-mono: "JetBrains Mono", monospace;
@@ -35,6 +36,7 @@
     --color-secondary: #a3a3a3;
     --color-border: #262626;
     --color-border-secondary: #4b5563;
+    --color-accent: #3182ce;
   }
 }
 

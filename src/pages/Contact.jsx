@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
+import emailjs from "@emailjs/browser";
 import {
   Mail,
   Github,
@@ -28,11 +29,31 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    toast.success("Message sent successfully!");
-    setFormData({ name: "", email: "", subject: "", message: "" });
+
+    try {
+      const templateParams = {
+        user_name: formData.name,
+        user_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: "rahimsiddiqui122@gmail.com",
+      };
+
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      );
+
+      toast.success("Message sent successfully!");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      toast.error("Failed to send message. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -101,8 +122,7 @@ const Contact = () => {
           className="flex flex-col items-center md:items-start text-center md:text-left"
         >
           <h1 className="text-primary text-4xl sm:text-5xl font-bold font-space-grotesk tracking-tight">
-            Let's{" "}
-            <span className="text-blue-600 dark:text-blue-500">Connect!</span>
+            Let's <span className="text-accent">Connect!</span>
           </h1>
           <p className="text-secondary text-lg max-w-lg mt-5">
             Have a project in mind or just want to chat about tech? I'm always
@@ -125,7 +145,7 @@ const Contact = () => {
               <div className="space-y-6">
                 {contactInfo.map((info, idx) => (
                   <div key={idx} className="flex items-start gap-4">
-                    <div className="p-3 bg-surface border border-border rounded-xl text-blue-600 dark:text-blue-500">
+                    <div className="p-3 bg-surface border border-border rounded-xl text-accent">
                       {info.icon}
                     </div>
                     <div>
