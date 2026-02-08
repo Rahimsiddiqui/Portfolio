@@ -375,6 +375,8 @@ function LandingPage() {
                     className={`w-14 h-14 relative z-10 object-contain pointer-events-none transition-transform duration-300 group-hover:scale-103 ${
                       tech.name === "Express" ? "dark:invert" : ""
                     }`}
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <span className="text-secondary text-sm font-space-grotesk font-bold uppercase tracking-wider transition-colors duration-300 group-hover:text-primary">
@@ -515,6 +517,8 @@ function LandingPage() {
                 alt="Client Photo"
                 className="w-full h-full object-cover"
                 src="/images/ahmed.jpg"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="text-left">

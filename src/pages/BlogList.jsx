@@ -52,6 +52,8 @@ const BlogList = () => {
                     src={post.image}
                     alt={post.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
                     onError={(e) => {
                       e.target.src = `https://picsum.photos/800/450?random=${index}`;
                     }}

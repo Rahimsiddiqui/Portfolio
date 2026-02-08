@@ -27,10 +27,11 @@ const ProjectCard = ({ project, idx }) => {
           src={project.image}
           alt={project.title}
           className="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105"
+          loading="lazy"
+          decoding="async"
           onError={(e) => {
             e.target.src = `https://picsum.photos/800/450?random=${idx}`;
           }}
-          loading="lazy"
         />
         <div className="absolute inset-0 bg-linear-to-t from-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>

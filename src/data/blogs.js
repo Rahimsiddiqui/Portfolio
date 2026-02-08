@@ -17,10 +17,9 @@ export const blogs = [
       <p>As we transition into this new era, understanding these tools is crucial for any modern web developer.</p>
     `,
     excerpt: "Explore the groundbreaking features of React 19 and how they are revolutionizing the way we build web applications.",
-    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "/images/mastering-react-19.avif",
     category: "Development",
     author: "Rahim Siddiqui",
-    views: 1240,
     createdAt: "2025-05-15T10:00:00Z"
   },
   {
@@ -40,10 +39,9 @@ export const blogs = [
       <p>When design meets accessibility, we create products that are truly impactful.</p>
     `,
     excerpt: "Learn the principles of modern web design and why accessibility is the key to creating successful digital products.",
-    image: "https://images.unsplash.com/photo-1581291518062-c9239e56f2b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "/images/designing-for-modern-web.avif",
     category: "Design",
     author: "Rahim Siddiqui",
-    views: 856,
     createdAt: "2025-06-20T14:30:00Z"
   },
   {
@@ -63,10 +61,9 @@ export const blogs = [
       <p>Embracing AI means opening up new possibilities for innovation and expression.</p>
     `,
     excerpt: "How AI is transforming the creative landscape and why the human touch is more important than ever.",
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4628c9757?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "/images/rise-of-ai.avif",
     category: "Technology",
     author: "Rahim Siddiqui",
-    views: 3102,
     createdAt: "2025-07-25T09:15:00Z"
   }
 ];
