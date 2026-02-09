@@ -1,5 +1,5 @@
 import js from "@eslint/js";
-import react from "eslint-plugin-react";
+import * as reactPlugin from "eslint-plugin-react";
 import globals from "globals";
 
 export default [
@@ -10,21 +10,10 @@ export default [
   // BASE
   js.configs.recommended,
 
-  // ===== SERVER (Node.js) =====
-  {
-    files: ["server/**/*.js"],
-    languageOptions: {
-      globals: globals.node,
-    },
-    rules: {
-      "no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
-    },
-  },
-
   // ===== CLIENT (React) =====
   {
-    files: ["src/**/*.{js,jsx}"],
-    plugins: { react },
+    files: ["src/**/*.{ts,tsx}"],
+    plugins: { reactPlugin },
     languageOptions: {
       globals: globals.browser,
       parserOptions: {
