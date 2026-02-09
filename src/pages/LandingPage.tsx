@@ -6,14 +6,23 @@ import ProjectCard from "../components/ProjectCard";
 import { Project, Technology, WorkStep } from "../types";
 
 const technologies: Technology[] = [
+  // Languages
   { name: "HTML", icon: "/icons/html.svg" },
   { name: "CSS", icon: "/icons/css.svg" },
   { name: "JavaScript", icon: "/icons/js.svg" },
+  { name: "TypeScript", icon: "/icons/ts.svg" },
+
+  // Frontend Frameworks
+  { name: "React", icon: "/icons/react.svg" },
+  { name: "Tailwind", icon: "/icons/tailwind.svg" },
+
+  // Backend & Database
   { name: "Node.js", icon: "/icons/nodejs.svg" },
   { name: "Express", icon: "/icons/express.svg" },
-  { name: "React", icon: "/icons/react.svg" },
   { name: "MongoDB", icon: "/icons/mongodb.svg" },
-  { name: "Tailwind", icon: "/icons/tailwind.svg" },
+
+  // Version Control
+  { name: "Git", icon: "/icons/git.svg" },
 ];
 
 const featuredWork: Project[] = [
@@ -313,7 +322,7 @@ function LandingPage() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="font-semibold text-3xl sm:text-4xl md:text-[2.5rem] mb-14"
         >
-          My Tech Stack
+          My Tech Stack 
         </motion.h2>
 
         <div className="relative w-full group/slider">
