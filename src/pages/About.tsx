@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { Experience, Result } from "../types";
 
-const experiences = [
+const experiences: Experience[] = [
   {
     title: "Freelance Web Developer",
     company: "Self-Employed",
@@ -11,22 +12,22 @@ const experiences = [
   },
 ];
 
-const results = [
+const results: Result[] = [
   { label: "Years Experience", value: "2+" },
   { label: "Projects Completed", value: "20+" },
   { label: "Happy Clients", value: "10+" },
   { label: "Cups of Coffee", value: "300+" },
 ];
 
-const ResultCard = ({ result, index, isLargeScreen }) => {
+const ResultCard = ({ result, index, isLargeScreen }: { result: Result; index: number; isLargeScreen: boolean }) => {
   const [inView, setInView] = useState(false);
 
   return (
     <motion.div
       onViewportEnter={() => setInView(true)}
       viewport={{ once: true, amount: 0.2 }}
-      initial={isLargeScreen ? "hidden" : false}
-      whileInView={isLargeScreen ? "show" : false}
+      initial={isLargeScreen ? "hidden" : undefined}
+      whileInView={isLargeScreen ? "show" : undefined}
       variants={
         isLargeScreen
           ? {

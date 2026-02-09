@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { toast } from "react-toastify";
 import emailjs from "@emailjs/browser";
 import {
@@ -21,12 +21,12 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -86,7 +86,7 @@ const Contact = () => {
     },
   ];
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -97,7 +97,7 @@ const Contact = () => {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     show: {
       opacity: 1,
@@ -106,7 +106,7 @@ const Contact = () => {
     },
   };
 
-  const copyEmail = (email) => {
+  const copyEmail = (email: string) => {
     navigator.clipboard.writeText(email);
     toast.success("Email copied to clipboard!");
   };
@@ -254,7 +254,7 @@ const Contact = () => {
                     required
                     id="message"
                     name="message"
-                    rows="5"
+                    rows={5}
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Your message here..."

@@ -1,4 +1,6 @@
-export const blogs = [
+import { BlogPost } from "../types";
+
+export const blogs: BlogPost[] = [
   {
     _id: "1",
     title: "Mastering React 19: A New Era of Web Development",

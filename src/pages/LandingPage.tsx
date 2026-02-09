@@ -3,8 +3,9 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, useAnimationControls } from "framer-motion";
 import { Briefcase } from "lucide-react";
 import ProjectCard from "../components/ProjectCard";
+import { Project, Technology, WorkStep } from "../types";
 
-const technologies = [
+const technologies: Technology[] = [
   { name: "HTML", icon: "/icons/html.svg" },
   { name: "CSS", icon: "/icons/css.svg" },
   { name: "JavaScript", icon: "/icons/js.svg" },
@@ -15,7 +16,7 @@ const technologies = [
   { name: "Tailwind", icon: "/icons/tailwind.svg" },
 ];
 
-const featuredWork = [
+const featuredWork: Project[] = [
   {
     title: "Qubli AI",
     description:
@@ -54,7 +55,7 @@ const featuredWork = [
   },
 ];
 
-const howIWork = [
+const howIWork: WorkStep[] = [
   {
     title: "Discovery",
     description:
@@ -87,15 +88,15 @@ const howIWork = [
   },
 ];
 
-const WorkCard = ({ work, idx, isLargeScreen }) => {
+const WorkCard = ({ work, idx, isLargeScreen }: {work: WorkStep, idx: number, isLargeScreen: boolean}) => {
   const [inView, setInView] = useState(false);
 
   return (
     <motion.div
       onViewportEnter={() => setInView(true)}
       viewport={{ once: true, amount: 0.2 }}
-      initial={isLargeScreen ? "hidden" : false}
-      whileInView={isLargeScreen ? "show" : false}
+      initial={isLargeScreen ? "hidden" : undefined}
+      whileInView={isLargeScreen ? "show" : undefined}
       variants={
         isLargeScreen
           ? {
@@ -193,7 +194,7 @@ function LandingPage() {
   );
 
   useEffect(() => {
-    startInfiniteScroll(0);
+    startInfiniteScroll(null);
   }, [startInfiniteScroll]);
 
   useEffect(() => {
@@ -220,7 +221,7 @@ function LandingPage() {
   return (
     <div className="min-h-screen bg-background px-5.5 pt-3.5 transition-colors duration-200">
       {/* Hero Section */}
-      <section className="flex flex-col justify-center items-center max-w-5xl mx-auto">
+      <section className="flex flex-col justify-center items-center max-w-5xl min-h-135 mx-auto">
         <p className="uppercase text-xs md:text-[0.8rem] text-secondary tracking-widest font-semibold">
           Fullstack developer
         </p>
@@ -330,7 +331,7 @@ function LandingPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
             onUpdate={(latest) => {
-              xPos.current = latest.x;
+              xPos.current = latest.x as number;
             }}
             onDragStart={() => {
               controls.stop();
@@ -406,7 +407,7 @@ function LandingPage() {
           ))}
         </div>
         <p
-          className="text-primary/90 hover:text-primary text-sm sm:text-md ml-0.5 mt-13 lg:mt-16 font-medium flex justify-center items-center gap-1.5 cursor-pointer group transition-colors transition-transform duration-200"
+          className="text-primary/90 hover:text-primary text-sm sm:text-md ml-0.5 mt-13 lg:mt-16 font-medium flex justify-center items-center gap-1.5 cursor-pointer group transition-transform duration-200"
           onClick={() => navigate("/projects")}
         >
           View All Projects{" "}
@@ -489,7 +490,7 @@ function LandingPage() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="text-center max-w-4xl mx-auto"
         >
-          <div className="mb-7 text-accent text-accent">
+          <div className="mb-7 text-accent">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"

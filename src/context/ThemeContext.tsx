@@ -1,8 +1,12 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
-const ThemeContext = createContext();
+const ThemeContext = createContext({
+  theme: "light",
+  isDark: false,
+  toggleTheme: () => {},
+});
 
-export const ThemeProvider = ({ children }) => {
+export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [theme, setTheme] = useState(() => {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("theme");

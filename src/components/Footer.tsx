@@ -6,7 +6,7 @@ function Footer() {
   const location = useLocation();
   const currentYear = new Date().getFullYear();
 
-  const isActive = (link) => {
+  const isActive = (link: string) => {
     return location.pathname === link;
   };
 

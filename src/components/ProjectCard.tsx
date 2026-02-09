@@ -1,8 +1,9 @@
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
+import { Project } from "../types";
 
-const ProjectCard = ({ project, idx }) => {
-  const itemVariants = {
+const ProjectCard = ({ project, idx }: { project: Project; idx: number }) => {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     show: {
       opacity: 1,
@@ -30,7 +31,7 @@ const ProjectCard = ({ project, idx }) => {
           loading="lazy"
           decoding="async"
           onError={(e) => {
-            e.target.src = `https://picsum.photos/800/450?random=${idx}`;
+            (e.target as HTMLImageElement).src = `https://picsum.photos/800/450?random=${idx}`;
           }}
         />
         <div className="absolute inset-0 bg-linear-to-t from-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -72,7 +73,7 @@ const ProjectCard = ({ project, idx }) => {
 
         {/* Technologies */}
         <div className="flex flex-wrap gap-2">
-          {project.technologies.map((tech, techIdx) => (
+          {project.technologies.map((tech: string, techIdx: number) => (
             <span
               key={techIdx}
               className="px-3 py-1 bg-surface border border-border rounded-full text-[0.75rem] font-medium text-secondary uppercase tracking-wider"

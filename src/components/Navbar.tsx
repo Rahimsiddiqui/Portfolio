@@ -36,7 +36,7 @@ function Navbar() {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  const isActive = (link) => {
+  const isActive = (link: string) => {
     return location.pathname === link;
   };
 

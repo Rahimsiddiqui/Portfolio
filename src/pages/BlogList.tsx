@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { blogs as staticBlogs } from "../data/blogs";
 import { useNavigate, Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -28,7 +28,7 @@ const BlogList = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
           {blogPosts.map((post, index) => (
             <motion.div
-              key={post._id || post.id}
+              key={post._id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -55,7 +55,7 @@ const BlogList = () => {
                     loading="lazy"
                     decoding="async"
                     onError={(e) => {
-                      e.target.src = `https://picsum.photos/800/450?random=${index}`;
+                      (e.target as HTMLImageElement).src = `https://picsum.photos/800/450?random=${index}`;
                     }}
                   />
                 </div>
@@ -68,7 +68,7 @@ const BlogList = () => {
                     {post.category}
                   </span>
                   <span className="text-xs text-secondary font-mono">
-                    {new Date(post.createdAt || post.date).toLocaleDateString(
+                    {new Date(post.createdAt).toLocaleDateString(
                       "en-US",
                       { month: "short", day: "numeric", year: "numeric" },
                     )}

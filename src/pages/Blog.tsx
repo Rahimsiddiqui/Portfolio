@@ -3,11 +3,22 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { blogs as staticBlogs } from "../data/blogs";
 
+interface BlogPost {
+  _id: string;
+  title: string;
+  slug: string;
+  content: string;
+  excerpt: string;
+  image: string;
+  category: string;
+  author: string;
+  createdAt?: string;
+}
+
 const Blog = () => {
   const { slug } = useParams();
-  const [post, setPost] = useState(null);
+  const [post, setPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
-  const [views, setViews] = useState(0);
 
   useEffect(() => {
     const fetchPost = () => {
@@ -16,8 +27,7 @@ const Blog = () => {
         (p) => p.slug === slug || p._id === slug,
       );
       if (foundPost) {
-        setPost(foundPost);
-        setViews(foundPost.views || 0);
+        setPost(foundPost as unknown as BlogPost);
       } else {
         console.error("Post not found");
       }
@@ -101,7 +111,7 @@ const Blog = () => {
               {post.category}
             </span>
             <span className="text-xs text-secondary font-mono">
-              {new Date(post.createdAt || post.date).toLocaleDateString(
+              {new Date(post.createdAt as string).toLocaleDateString(
                 "en-US",
                 { month: "short", day: "numeric", year: "numeric" },
               )}
@@ -121,7 +131,6 @@ const Blog = () => {
                 <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
                 <circle cx="12" cy="12" r="3" />
               </svg>
-              {views}
             </span>
           </div>
 
