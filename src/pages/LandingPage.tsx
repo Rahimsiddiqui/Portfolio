@@ -97,7 +97,15 @@ const howIWork: WorkStep[] = [
   },
 ];
 
-const WorkCard = ({ work, idx, isLargeScreen }: {work: WorkStep, idx: number, isLargeScreen: boolean}) => {
+const WorkCard = ({
+  work,
+  idx,
+  isLargeScreen,
+}: {
+  work: WorkStep;
+  idx: number;
+  isLargeScreen: boolean;
+}) => {
   const [inView, setInView] = useState(false);
 
   return (
@@ -210,7 +218,7 @@ function LandingPage() {
     if (index < fullLength) {
       const timer = setTimeout(() => {
         setIndex((prev) => prev + 1);
-      }, 65);
+      }, 50);
       return () => clearTimeout(timer);
     } else {
       const timer = setTimeout(() => {
@@ -322,7 +330,7 @@ function LandingPage() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="font-semibold text-3xl sm:text-4xl md:text-[2.5rem] mb-14"
         >
-          My Tech Stack 
+          My Tech Stack
         </motion.h2>
 
         <div className="relative w-full group/slider">

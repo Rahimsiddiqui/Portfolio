@@ -23,6 +23,7 @@
   * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
   }
 
   html.dark {
@@ -40,10 +41,6 @@
   }
 }
 
-* {
-  box-sizing: border-box;
-}
-
 html,
 body {
   height: 100%;
@@ -51,6 +48,7 @@ body {
   background: var(--color-background);
   color: var(--color-primary);
   line-height: 1.5;
+  scroll-behavior: smooth;
 }
 
 img,
@@ -75,6 +73,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
 @keyframes slide-in-left {
   0% {
     opacity: 0;

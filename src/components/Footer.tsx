@@ -104,7 +104,7 @@ function Footer() {
           © {currentYear} Rahim Dev. All rights reserved.
         </p>
         <p className="text-sm text-secondary">
-          Built with React • Tailwind • MongoDB
+          Built with React • Tailwind • Motion
         </p>
         <div className="flex items-center gap-2">
           {socialLinks.map((link, index) => (

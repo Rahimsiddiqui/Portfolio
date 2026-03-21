@@ -9,7 +9,7 @@ function Navbar() {
   const { theme, toggleTheme } = useTheme();
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(window.scrollY > 0);
 
   // Scroll locking when mobile menu is open
   useEffect(() => {
@@ -28,8 +28,18 @@ function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
     };
+
+    // Initial check
+    handleScroll();
+
+    // Listen to both scroll event and wheel events
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("wheel", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("wheel", handleScroll);
+    };
   }, []);
 
   const toggleMobileMenu = () => {
