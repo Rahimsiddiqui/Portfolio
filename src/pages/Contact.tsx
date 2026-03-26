@@ -82,7 +82,7 @@ const Contact = () => {
     },
     {
       icon: <Twitter className="w-5 h-5" />,
-      link: "https://twitter.com/rahimsiddiqui",
+      link: "https://x.com/rahimdeveloper",
     },
   ];
 
