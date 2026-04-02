@@ -36,12 +36,12 @@ const featuredWork: Project[] = [
     technologies: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
   },
   {
-    title: "Project 2",
+    title: "Financial Atelier",
     description:
-      "A sophisticated web application demonstrating advanced frontend architecture and state management.",
-    image: "/images/project2.png",
-    link: "https://qubli-ai.vercel.app",
-    github: "https://github.com/rahimsiddiqui",
+      "A sophisticated web application that transforms finance into an art. Every strategy is bespoke, blending rigorous analysis with visionary insight. Here, wealth is crafted with precision, creativity, and integrity, empowering clients to shape their financial future with confidence, elegance, and purpose.",
+    image: "/images/financial-atelier.avif",
+    link: "https://financial-atelier.vercel.app",
+    github: "https://github.com/rahimsiddiqui/fiancial-atelier",
     technologies: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
   },
   {
@@ -218,7 +218,7 @@ function LandingPage() {
     if (index < fullLength) {
       const timer = setTimeout(() => {
         setIndex((prev) => prev + 1);
-      }, 50);
+      }, 65);
       return () => clearTimeout(timer);
     } else {
       const timer = setTimeout(() => {
