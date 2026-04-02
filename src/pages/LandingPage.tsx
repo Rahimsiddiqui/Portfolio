@@ -38,7 +38,7 @@ const featuredWork: Project[] = [
   {
     title: "Financial Atelier",
     description:
-      "A sophisticated web application that transforms finance into an art. Every strategy is bespoke, blending rigorous analysis with visionary insight. Here, wealth is crafted with precision, creativity, and integrity, empowering clients to shape their financial future with confidence, elegance, and purpose.",
+      "A web app where bespoke strategies turn finance into art with precision and insight.",
     image: "/images/financial-atelier.avif",
     link: "https://financial-atelier.vercel.app",
     github: "https://github.com/rahimsiddiqui/fiancial-atelier",
