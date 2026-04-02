@@ -218,7 +218,7 @@ function LandingPage() {
     if (index < fullLength) {
       const timer = setTimeout(() => {
         setIndex((prev) => prev + 1);
-      }, 65);
+      }, 80);
       return () => clearTimeout(timer);
     } else {
       const timer = setTimeout(() => {
