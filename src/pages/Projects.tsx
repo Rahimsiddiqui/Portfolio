@@ -12,12 +12,12 @@ const projects = [
     technologies: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
   },
   {
-    title: "Project 2",
+    title: "Financial Atelier",
     description:
-      "A sophisticated web application demonstrating advanced frontend architecture and state management.",
-    image: "/images/project2.png",
-    link: "https://qubli-ai.vercel.app",
-    github: "https://github.com/rahimsiddiqui",
+      "A web app where bespoke strategies turn finance into art with precision and insight.",
+    image: "/images/financial-atelier.avif",
+    link: "https://financial-atelier.vercel.app",
+    github: "https://github.com/rahimsiddiqui/fiancial-atelier",
     technologies: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
   },
   {
