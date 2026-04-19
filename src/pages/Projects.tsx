@@ -16,9 +16,9 @@ const projects = [
     description:
       "A web app where bespoke strategies turn finance into art with precision and insight.",
     image: "/images/financial-atelier.avif",
-    link: "https://financial-atelier.vercel.app",
-    github: "https://github.com/rahimsiddiqui/fiancial-atelier",
-    technologies: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
+    link: "https://financialatelier.vercel.app",
+    github: "https://github.com/rahimsiddiqui/financial-atelier",
+    technologies: ["React", "Node.js", "Serverless", "MongoDB", "Tailwind"],
   },
   {
     title: "Project 3",
