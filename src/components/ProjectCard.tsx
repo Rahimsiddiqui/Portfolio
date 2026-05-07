@@ -31,7 +31,8 @@ const ProjectCard = ({ project, idx }: { project: Project; idx: number }) => {
           loading="lazy"
           decoding="async"
           onError={(e) => {
-            (e.target as HTMLImageElement).src = `https://picsum.photos/800/450?random=${idx}`;
+            (e.target as HTMLImageElement).src =
+              `https://picsum.photos/800/450?random=${idx}`;
           }}
         />
         <div className="absolute inset-0 bg-linear-to-t from-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -43,26 +44,26 @@ const ProjectCard = ({ project, idx }: { project: Project; idx: number }) => {
           <h3 className="text-primary text-2xl font-bold font-space-grotesk tracking-tight">
             {project.title}
           </h3>
-          <div className="flex -mt-2 gap-2">
+          <div className="flex mt-2 gap-6 sm:gap-10 sm:mt-1">
             <a
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-secondary rounded-full p-3 hover:text-primary hover:bg-surface transition-colors duration-200"
+              className="text-secondary rounded-full w-4 h-4 sm:w-5 sm:h-5 hover:text-primary hover:bg-surface transition-colors duration-200"
               aria-label="GitHub Repository"
               onClick={(e) => e.stopPropagation()}
             >
-              <Github size={20} />
+              <Github />
             </a>
             <a
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-secondary rounded-full p-3 hover:text-primary hover:bg-surface transition-colors duration-200"
+              className="text-secondary rounded-full w-4 h-4 sm:w-5 sm:h-5 hover:text-primary hover:bg-surface transition-colors duration-200"
               aria-label="Live Demo"
               onClick={(e) => e.stopPropagation()}
             >
-              <ExternalLink size={20} />
+              <ExternalLink />
             </a>
           </div>
         </div>
