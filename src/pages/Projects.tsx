@@ -40,7 +40,7 @@ const projects = [
     title: "Todo App",
     description:
       "A modern and responsive todo application built for fast task management, seamless productivity, and smooth user interactions.",
-    image: "/images/todo-app.png",
+    image: "/images/todo-app.avif",
     link: "https://rahim-todo-app.vercel.app",
     github: "https://github.com/rahimsiddiqui/todo-app",
     technologies: ["React", "Localstorage", "Next.js", "Tailwind"],
