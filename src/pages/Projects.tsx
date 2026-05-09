@@ -37,13 +37,13 @@ const projects = [
     ],
   },
   {
-    title: "Project 4",
+    title: "Todo App",
     description:
-      "A scalable full-stack solution built with performance and accessibility at its core.",
-    image: "/images/project4.png",
-    link: "https://qubli-ai.vercel.app",
-    github: "https://github.com/rahimsiddiqui",
-    technologies: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
+      "A modern and responsive todo application built for fast task management, seamless productivity, and smooth user interactions.",
+    image: "/images/todo-app.png",
+    link: "https://rahim-todo-app.vercel.app",
+    github: "https://github.com/rahimsiddiqui/todo-app",
+    technologies: ["React", "Localstorage", "Next.js", "Tailwind"],
   },
 ];
 
