@@ -88,7 +88,7 @@ function Navbar() {
               </p>
             </div>
             <div className="flex flex-row ml-auto justify-center items-center gap-2 sm:gap-3 md:gap-5 lg:gap-6">
-              <div className="hidden md:flex flex-row justify-center items-center gap-7">
+              <div className="hidden md:flex flex-row justify-center items-center gap-10">
                 {btns.map((btn) => (
                   <button
                     key={btn.label}
