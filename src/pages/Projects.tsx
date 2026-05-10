@@ -45,6 +45,21 @@ const projects = [
     github: "https://github.com/rahimsiddiqui/todo-app",
     technologies: ["React", "Localstorage", "Next.js", "Tailwind"],
   },
+  {
+    title: "Olivia",
+    description:
+      "A modern and minimal note-taking application built for distraction-free writing, organized note management, and seamless accessibility with search and shareable links.",
+    image: "/images/olivia.avif",
+    link: "https://rahim-olivia.vercel.app",
+    github: "https://github.com/rahimsiddiqui/olivia",
+    technologies: [
+      "React",
+      "Localstorage",
+      "Next.js",
+      "Tailwind",
+      "Context API",
+    ],
+  },
 ];
 
 const Projects = () => {
