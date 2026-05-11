@@ -3,7 +3,8 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, useAnimationControls } from "framer-motion";
 import { Briefcase } from "lucide-react";
 import ProjectCard from "../components/ProjectCard";
-import { Project, Technology, WorkStep } from "../types";
+import { Technology, WorkStep } from "../types";
+import { projects } from "../data/projects";
 
 const technologies: Technology[] = [
   // Languages
@@ -23,52 +24,6 @@ const technologies: Technology[] = [
 
   // Version Control
   { name: "Git", icon: "/icons/git.svg" },
-];
-
-const featuredWork: Project[] = [
-  {
-    title: "Qubli AI",
-    description:
-      "A comprehensive AI-driven platform for automated performance reviews and developer insights.",
-    image: "/images/qubli-ai.avif",
-    link: "https://qubli-ai.vercel.app",
-    github: "https://github.com/Qubli-AI/Qubli-AI",
-    technologies: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
-  },
-  {
-    title: "Financial Atelier",
-    description:
-      "A web app where bespoke strategies turn finance into art with precision and insight.",
-    image: "/images/financial-atelier.avif",
-    link: "https://financialatelier.vercel.app",
-    github: "https://github.com/financialatelier/financialatelier",
-    technologies: ["React", "Node.js", "Serverless", "MongoDB", "Tailwind"],
-  },
-  {
-    title: "Macbook Landing Page",
-    description:
-      "A recreation of Apple's Macbook landing page, built with React and Tailwind for pixel-perfect design and smooth animations.",
-    image: "/images/macbook-14.avif",
-    link: "https://macbook-14.vercel.app",
-    github: "https://github.com/rahimsiddiqui/macbook-14",
-    technologies: [
-      "React",
-      "Node.js",
-      "Serverless",
-      "MongoDB",
-      "Tailwind",
-      "Next.js",
-    ],
-  },
-  {
-    title: "Todo App",
-    description:
-      "A modern and responsive todo application built for fast task management, seamless productivity, and smooth user interactions.",
-    image: "/images/todo-app.avif",
-    link: "https://rahim-todo-app.vercel.app",
-    github: "https://github.com/rahimsiddiqui/todo-app",
-    technologies: ["React", "Localstorage", "Next.js", "Tailwind"],
-  },
 ];
 
 const howIWork: WorkStep[] = [
@@ -166,7 +121,7 @@ const WorkCard = ({
       </div>
 
       {/* Decorative accent */}
-      <div className="absolute bottom-0 left-0 w-full h-[2px] bg-linear-to-r from-primary/0 via-primary/40 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <div className="absolute bottom-0 left-0 w-full h-0.5 bg-linear-to-r from-primary/0 via-primary/40 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
     </motion.div>
   );
 };
@@ -273,7 +228,7 @@ function LandingPage() {
           {t2 && <span className="text-accent">{t2}</span>}
           {t3}
           {index < fullLength && (
-            <span className="inline-block w-[3px] h-11.5 bg-blue-600 ml-0.5 -mb-1 animate-pulse"></span>
+            <span className="inline-block w-0.75 h-11.5 bg-blue-600 ml-0.5 -mb-1 animate-pulse"></span>
           )}
         </div>
 
@@ -426,7 +381,7 @@ function LandingPage() {
           Featured Work
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 max-w-5xl">
-          {featuredWork.map((work, idx) => (
+          {projects.slice(0, 4).map((work, idx) => (
             <ProjectCard key={idx} project={work} idx={idx} />
           ))}
         </div>

@@ -24,6 +24,15 @@ export interface BlogPost {
   createdAt: string;
 }
 
+export interface Project {
+  title: string;
+  description: string;
+  image: string;
+  link: string;
+  github: string;
+  technologies: string[];
+}
+
 export interface Result {
   label: string;
   value: string;
