@@ -67,4 +67,13 @@ export const projects: Project[] = [
       "Context API",
     ],
   },
+  {
+    title: "Mojito",
+    description:
+      "Mojito is a Next.js + GSAP cocktail website with smooth, cinematic transitions and clean state-driven animations.",
+    image: "/images/mojito.avif",
+    link: "https://coctail-landing.vercel.app",
+    github: "https://github.com/rahimsiddiqui/cocktail_landing",
+    technologies: ["React", "GSAP", "Next.js", "Tailwind", "React Responsive"],
+  },
 ];
