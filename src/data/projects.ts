@@ -2,13 +2,22 @@ import { Project } from "../types";
 
 export const projects: Project[] = [
   {
-    title: "Qubli AI",
+    title: "Mojito",
     description:
-      "A comprehensive AI-driven platform for automated performance reviews and developer insights.",
-    image: "/images/qubli-ai.avif",
-    link: "https://qubli-ai.vercel.app",
-    github: "https://github.com/Qubli-AI/Qubli-AI",
-    technologies: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
+      "Mojito is a Next.js + GSAP cocktail website with smooth, cinematic transitions and clean state-driven animations.",
+    image: "/images/mojito.avif",
+    link: "https://coctail-landing.vercel.app",
+    github: "https://github.com/rahimsiddiqui/cocktail_landing",
+    technologies: ["React", "GSAP", "Next.js", "Tailwind", "React Responsive"],
+  },
+  {
+    title: "Macbook Landing Page",
+    description:
+      "A recreation of Apple's Macbook landing page, built with React and Tailwind for pixel-perfect design and smooth animations.",
+    image: "/images/macbook-14.avif",
+    link: "https://macbook-14.vercel.app",
+    github: "https://github.com/rahimsiddiqui/macbook-14",
+    technologies: ["React", "GSAP", "Three.js", "Tailwind", "Next.js"],
   },
   {
     title: "Financial Atelier",
@@ -20,22 +29,13 @@ export const projects: Project[] = [
     technologies: ["React", "Node.js", "Serverless", "MongoDB", "Tailwind"],
   },
   {
-    title: "Macbook Landing Page",
+    title: "Qubli AI",
     description:
-      "A recreation of Apple's Macbook landing page, built with React and Tailwind for pixel-perfect design and smooth animations.",
-    image: "/images/macbook-14.avif",
-    link: "https://macbook-14.vercel.app",
-    github: "https://github.com/rahimsiddiqui/macbook-14",
-    technologies: ["React", "Three.js", "Tailwind", "Next.js"],
-  },
-  {
-    title: "Todo App",
-    description:
-      "A modern and responsive todo application built for fast task management, seamless productivity, and smooth user interactions.",
-    image: "/images/todo-app.avif",
-    link: "https://rahim-todo-app.vercel.app",
-    github: "https://github.com/rahimsiddiqui/todo-app",
-    technologies: ["React", "Localstorage", "Next.js", "Tailwind"],
+      "A comprehensive AI-driven platform for automated performance reviews and developer insights.",
+    image: "/images/qubli-ai.avif",
+    link: "https://qubli-ai.vercel.app",
+    github: "https://github.com/Qubli-AI/Qubli-AI",
+    technologies: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
   },
   {
     title: "Olivia",
@@ -65,15 +65,16 @@ export const projects: Project[] = [
       "Next.js",
       "Tailwind",
       "Context API",
+      "Web Speech API",
     ],
   },
   {
-    title: "Mojito",
+    title: "Nexus",
     description:
-      "Mojito is a Next.js + GSAP cocktail website with smooth, cinematic transitions and clean state-driven animations.",
-    image: "/images/mojito.avif",
-    link: "https://coctail-landing.vercel.app",
-    github: "https://github.com/rahimsiddiqui/cocktail_landing",
-    technologies: ["React", "GSAP", "Next.js", "Tailwind", "React Responsive"],
+      "A modern and responsive todo application built for fast task management, seamless productivity, and smooth user interactions.",
+    image: "/images/todo-app.avif",
+    link: "https://rahim-todo-app.vercel.app",
+    github: "https://github.com/rahimsiddiqui/todo-app",
+    technologies: ["React", "Localstorage", "Next.js", "Tailwind"],
   },
 ];
